@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "@openzeppelin/contracts": "^3.4.1",
+    "@supercharge/strings": "^1.29.1",
+    "@truffle/hdwallet-provider": "^2.1.7",
+    "truffle-plugin-verify": "^0.5.33"
+  },
+  "dependencies": {
+    "ganache-cli": "^6.12.2",
+    "truffle": "^5.7.7"
+  }
+}
