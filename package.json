@@ -1,8 +1,12 @@
 {
   "devDependencies": {
     "@openzeppelin/contracts": "^3.4.1",
-    "@supercharge/strings": "^1.25.0",
-    "@truffle/hdwallet-provider": "^2.0.3",
-    "truffle-plugin-verify": "^0.5.21"
+    "@supercharge/strings": "^1.29.1",
+    "@truffle/hdwallet-provider": "^2.1.7",
+    "truffle-plugin-verify": "^0.5.33"
+  },
+  "dependencies": {
+    "@aave/core-v3": "^1.17.2",
+    "truffle": "^5.7.7"
   }
 }

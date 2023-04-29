@@ -1,39 +1,49 @@
-// const Str = require('@supercharge/strings')
-// const BigNumber = require('bignumber.js');
 
-var TDErc20 = artifacts.require("ERC20TD.sol");
-var evaluator = artifacts.require("Evaluator.sol");
-
+const ExerciceSolution = artifacts.require("ExerciceSolution");
+const FlashLoan = artifacts.require("FlashLoan");
 
 module.exports = (deployer, network, accounts) => {
     deployer.then(async () => {
-        await deployTDToken(deployer, network, accounts); 
-        await deployEvaluator(deployer, network, accounts); 
-        await setPermissionsAndRandomValues(deployer, network, accounts); 
-        await deployRecap(deployer, network, accounts); 
+
+        await deployer.deploy(ExerciceSolution);
+        // await deployer.deploy(FlashLoan, "");
     });
 };
 
-async function deployTDToken(deployer, network, accounts) {
-	TDToken = await TDErc20.new("TD-AAVE-101","TD-AAVE-101",web3.utils.toBN("42000000000000000000000000000"))
-	aDAIAddress = "0xADD98B0342e4094Ec32f3b67Ccfd3242C876ff7a"
-	USDCAddress = "0x65afadd39029741b3b8f0756952c74678c9cec93"
-	variableDebtUSDCAddress = "0x4DAe67e69aCed5ca8f99018246e6476F82eBF9ab"
-}
 
-async function deployEvaluator(deployer, network, accounts) {
-	Evaluator = await evaluator.new(TDToken.address, aDAIAddress, USDCAddress, variableDebtUSDCAddress)
-}
+// var TDErc20 = artifacts.require("ERC20TD.sol");
+// var evaluator = artifacts.require("Evaluator.sol");
 
-async function setPermissionsAndRandomValues(deployer, network, accounts) {
-	await TDToken.setTeacher(Evaluator.address, true)
 
-}
+// module.exports = (deployer, network, accounts) => {
+//     deployer.then(async () => {
+//         await deployTDToken(deployer, network, accounts); 
+//         await deployEvaluator(deployer, network, accounts); 
+//         await setPermissionsAndRandomValues(deployer, network, accounts); 
+//         await deployRecap(deployer, network, accounts); 
+//     });
+// };
 
-async function deployRecap(deployer, network, accounts) {
-	console.log("TDToken " + TDToken.address)
-	console.log("Evaluator " + Evaluator.address)
-}
+// async function deployTDToken(deployer, network, accounts) {
+// 	TDToken = await TDErc20.new("TD-AAVE-101","TD-AAVE-101",web3.utils.toBN("42000000000000000000000000000"))
+// 	aDAIAddress = "0xADD98B0342e4094Ec32f3b67Ccfd3242C876ff7a"
+// 	USDCAddress = "0x65afadd39029741b3b8f0756952c74678c9cec93"
+// 	variableDebtUSDCAddress = "0x4DAe67e69aCed5ca8f99018246e6476F82eBF9ab"
+// }
+
+// async function deployEvaluator(deployer, network, accounts) {
+// 	Evaluator = await evaluator.new(TDToken.address, aDAIAddress, USDCAddress, variableDebtUSDCAddress)
+// }
+
+// async function setPermissionsAndRandomValues(deployer, network, accounts) {
+// 	await TDToken.setTeacher(Evaluator.address, true)
+
+// }
+
+// async function deployRecap(deployer, network, accounts) {
+// 	console.log("TDToken " + TDToken.address)
+// 	console.log("Evaluator " + Evaluator.address)
+// }
 
 
 

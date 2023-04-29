@@ -4,6 +4,7 @@ pragma experimental ABIEncoderV2;
 import "./ERC20TD.sol";
 import "./IExerciceSolution.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/utils/Strings.sol";
 
 // import "./utils/IUniswapV2Factory.sol";
 // import "./utils/IUniswapV2Pair.sol";
@@ -211,7 +212,7 @@ contract Evaluator
 		// Your contract has to borrow 1M USDC. The USDC contract has 6 decimals
 		uint256 amountToBorrow = 1000000 * 1000000;
 		// Verify that contract did borrow
-		require(endBalance > amountToBorrow, "Your contract does not hold 1M dollars");
+		require(endBalance > amountToBorrow, Strings.toString(endBalance));
 
 		// Distributing points
 		if (!exerciceProgression[msg.sender][9])
